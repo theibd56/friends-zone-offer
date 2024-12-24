@@ -26,6 +26,11 @@ body {
   background: #f7f7f7;
 }
 
+
+html.lock {
+  overflow: hidden;
+}
+
 ul {
   list-style: none;
   margin: 0;
@@ -181,6 +186,84 @@ ul {
 }
 //******* styles with the offer agreement page END *******//
 
+//******* styles with the modal START *******//
+.modal-promo {
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 9999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  max-width: 556px;
+  width: calc(100% - 20px);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), url(/modal.png) center / cover  no-repeat;
+
+  padding: 274px 43px;
+
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    cursor: pointer;
+    transition: all .3s ease;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  &__title {
+    color: #FFF;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+  &__info {
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    width: 100%;
+    max-width: 470px;
+
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#overlay.visible {
+  opacity: 1;
+}
+
+//******* styles with the modal END *******//
+
 //******* media styles with title START *******//
 @media screen and (max-width: 768px) {
   .offer__title {
@@ -194,3 +277,28 @@ ul {
   }
 }
 //******* media styles with title END *******//
+
+//******* media styles with the modal START *******//
+@media screen and (max-width: 576px) {
+  .modal-promo {
+    padding: 208px 35px;
+    //max-width: 320px;
+    left: 10px;
+    right: 10px;
+
+    transform: translateY(-50%) scale(0.9);
+    &__title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    &__info {
+      font-size: 13px;
+      font-weight: 400;
+      bottom: 20px;
+    }
+    &.visible {
+      transform: translateY(-50%) scale(1);
+    }
+  }
+}
+//******* media styles with the modal END *******//
