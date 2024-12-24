@@ -295,6 +295,7 @@ ul {
       font-size: 13px;
       font-weight: 400;
       bottom: 20px;
+      max-width: 330px;
     }
     &.visible {
       transform: translateY(-50%) scale(1);
